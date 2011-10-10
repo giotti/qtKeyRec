@@ -1,0 +1,21 @@
+24 November 2010
+
+  - Bug fixed for the Fastweb Telsey router's models.
+
+11 January 2011
+
+  - Added the support for two new Pirelli's families
+
+16 January 2011
+
+  - Updated the website from where download the AGPF configuration file
+
+15 April 2011
+
+  - Updated the website from where download the AGPF configuration file
+
+22 April 2011
+
+  - Bug fixed in pirelli.c - Include 0x0A in the condition at line 78
+  - Thanks to Caterina Urban for the bug reporting
+

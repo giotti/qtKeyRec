@@ -1,0 +1,11 @@
+[Desktop Entry]
+Comment[]=A Sgarbi emulator
+Exec=qtKeyRec
+Type=Games
+Name[]=qtKeyRec
+Icon=qtKeyRec/qtKeyRec
+MimeType=""
+MimeTypeIcons=""
+[Translation]
+File=QtopiaGames
+Context=qtKeyRec

@@ -1,0 +1,123 @@
+WiRouter KeyRec 1.0.5
+
+ Author            Salvatore Fresta aka Drosophila
+ Website           http://www.salvatorefresta.net
+ Contact           salvatorefresta [at] gmail [dot] com
+ Date              2011-04-22
+
+X. INDEX
+
+ I.    ABOUT THE APPLICATION
+ II.   INSTALL AND UNINSTALL
+ III.  HOW TO USE
+ IV.   HOW TO UPDATE THE AGPF CONFIGURATION FILE
+
+
+I. ABOUT THE APPLICATION
+------------------------
+
+This work borns from the research of the reverse engineers
+of wifiresearchers (wifiresearchers.wordpress.com).  Using
+this application, it is possible to calculate  the default
+WPA  keys  used  by  the supported routers such as Telecom
+Italia AGPF, Fastweb Pirelli and Fastweb Telsey.
+
+
+II. INSTALL AND UNINSTALL
+-------------------------
+
+On install, a new  directory  named wirouterkeyrec will be
+created in the /etc/ directory  and  the  executable  file
+will be copied in /usr/local/bin.
+
+To install:
+
+$ make
+$ sudo make install
+
+or
+
+$ make
+$ su
+# make install
+
+
+To uninstall:
+
+$ sudo make uninstall
+
+or
+
+$ su
+# make uninstall
+
+
+III. HOW TO USE
+---------------
+
+Use  this  application is very simple. The simplest way is
+pass the SSID(s) to the command line using the --ssid (-s)
+option:
+
+wirouterkeyrec -s Alice-xxxxxxxx,FASTWEB-x-xxxxxxxxxxxx
+
+
+You can load the SSID(s) also from a file:
+
+wirouterkeyrec -f essid_list_file
+
+
+Or from both file and command line:
+
+wirouterkeyrec -s Alice-xxxxxxxx -f essid_list_file
+
+
+The specified file content's layout must be the following:
+
+Alice-xxxxxxxx
+FASTWEB-x-xxxxxxxxxxxx
+
+
+WiRouter KeyRec  will  search  the  configuration file for
+AGPF  routers  first  of  all in the current directory and
+after in the installation directory. The  default  file is
+agpf_config.lst. You can set an alternative  configuration
+file  using  the --config (-c) option:
+
+wirouterkeyrec -s Alice-xxxxxxxx -c config_file
+
+
+You  can  obtain  more  information  using  the -d  and -v
+options.
+
+
+IV. HOW TO UPDATE THE AGPF CONFIGURATION FILE
+---------------------------------------------
+
+The  supported  router's models are reported  in the magic
+number's  list  file  (default: agpf_config.lst).  You can
+upgrade easly  the your own list with information found on
+internet.
+
+The  string  format  for  each Access Point's model il the
+following:
+
+"MODEL,SERIAL_PART_ONE,K CONSTANT,Q CONSTANT"
+
+Example: "93X,69101,13,92398366,AA2F3C";
+
+93X      = All router's models that begin with 93.
+69101    = A part of the serial number.
+13       = The K constant for this router's model.
+92398366 = The Q constant for this router's model.
+AA2F3C   = The first 3 bytes of the MAC Address Ethernet
+
+You can replace the content of the  config.lst  to  update
+the magic numbers's list.
+
+You can use the option -u to  replace  the  content of the
+configuration  file  with  the  page  specified  by the -a
+option:
+
+wirouterkeyrec.exe -a "http://www.foo.com/list.txt" -u
+
